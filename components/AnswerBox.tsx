@@ -1,4 +1,4 @@
-import { useCallback, ChangeEvent } from 'react'
+import React, { useCallback, ChangeEvent } from 'react'
 import { FormControl, InputGroup } from 'react-bootstrap'
 import { CheckIcon, XIcon } from '@primer/octicons-react'
 import clsx from 'clsx'
@@ -11,7 +11,7 @@ export interface AnswerBoxProps {
   value: string
   onChange: (val: string) => void
 }
-export default function (props: AnswerBoxProps) {
+export default React.forwardRef((props: AnswerBoxProps, ref) => {
   const onChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       props.onChange(e.currentTarget.value)
@@ -33,6 +33,7 @@ export default function (props: AnswerBoxProps) {
           </InputGroup.Prepend>
         )}
         <FormControl
+          ref={ref}
           value={props.value}
           placeholder="回答を入力…"
           readOnly={props.correct !== null}
@@ -49,4 +50,4 @@ export default function (props: AnswerBoxProps) {
         ))}
     </div>
   )
-}
+})

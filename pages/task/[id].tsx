@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useEffect, useState } from 'react'
+import { FormEvent, useCallback, useEffect, useRef, useState } from 'react'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import shuffle from 'shuffle-array'
 
@@ -16,6 +16,7 @@ interface Props {
 }
 
 export default function ({ task }: Props) {
+  const ref = useRef(null)
   const [tasks, setTasks] = useState(task.tasks)
   const [problem, setProblem] = useState(0)
   const [score, setScore] = useState(0)
@@ -29,6 +30,7 @@ export default function ({ task }: Props) {
   const onClick = useCallback(
     (e: FormEvent) => {
       e.preventDefault()
+      ref.current.focus()
       if (confirm) {
         const normalizedValue = normalizeString(value)
         const normalizedAnswer = normalizeString(answer)
@@ -58,6 +60,7 @@ export default function ({ task }: Props) {
       {problem < tasks.length ? (
         <form>
           <Task
+            ref={ref}
             number={problem + 1}
             value={value}
             problem={sentence}
