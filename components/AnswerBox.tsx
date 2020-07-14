@@ -33,7 +33,7 @@ export default React.forwardRef((props: AnswerBoxProps, ref) => {
           </InputGroup.Prepend>
         )}
         <FormControl
-          ref={ref}
+          ref={ref as any}
           value={props.value}
           placeholder="回答を入力…"
           readOnly={props.correct !== null}
