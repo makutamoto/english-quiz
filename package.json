@@ -30,7 +30,6 @@
     "bootstrap": "^4.5.0",
     "clsx": "^1.1.1",
     "next": "latest",
-    "node-csv": "^0.1.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.1",

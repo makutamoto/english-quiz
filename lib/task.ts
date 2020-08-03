@@ -30,12 +30,12 @@ export function getTaskData(id: string): TaskData {
     encoding: 'utf-8',
   })
   const lines = data.split('\n')
-  const csv: string[][] = []
+  const tsv: string[][] = []
   lines.forEach((line) => {
-    if (line.length > 0) csv.push(line.split('\t'))
+    if (line.length > 0) tsv.push(line.split('\t'))
   })
-  const name = csv.shift()[0]
-  const tasks: Task[] = csv.map((line) => ({
+  const name = tsv.shift()[0]
+  const tasks: Task[] = tsv.map((line) => ({
     sentence: line[0],
     answer: line[1],
   }))
