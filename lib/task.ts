@@ -18,15 +18,15 @@ export function getTaskList() {
   const dir = fs.readdirSync(TASK_DATA_DIR)
   const list: string[] = []
   dir.forEach((filename) => {
-    if (path.extname(filename) == '.tsv') {
-      list.push(path.basename(filename, '.tsv'))
+    if (path.extname(filename) == '.csv') {
+      list.push(path.basename(filename, '.csv'))
     }
   })
   return list
 }
 
 export function getTaskData(id: string): TaskData {
-  const data = fs.readFileSync(path.join(TASK_DATA_DIR, id + '.tsv'), {
+  const data = fs.readFileSync(path.join(TASK_DATA_DIR, id + '.csv'), {
     encoding: 'utf-8',
   })
   const lines = data.split('\n')
