@@ -16,8 +16,6 @@ export default function (props: Props) {
         このサイトは対英語小テストのために即席で制作されました。
         <br />
         バグはクラスLineで報告して下さい。
-        <br />
-        入力しにくいので〜はsomething、(人)はsomeoneに置き換えています。
       </p>
       <QuizTable tasks={props.tasks} />
     </>
