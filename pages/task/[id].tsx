@@ -33,8 +33,7 @@ export default function ({ task }: Props) {
       ref.current.focus()
       if (confirm) {
         const normalizedValue = normalizeString(value)
-        const normalizedAnswer = normalizeString(answer)
-        if (normalizedValue === normalizedAnswer) {
+        if (answer.includes(normalizedValue)) {
           setCorrect(true)
           setScore(score + 1)
         } else {

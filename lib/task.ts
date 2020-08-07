@@ -1,11 +1,13 @@
 import fs from 'fs'
 import path from 'path'
 
+import { normalizeString } from './util'
+
 const TASK_DATA_DIR = './task_data'
 
 export interface Task {
   sentence: string
-  answer: string
+  answer: string[]
 }
 
 export interface TaskData {
@@ -37,7 +39,10 @@ export function getTaskData(id: string): TaskData {
   const name = tsv.shift()[0]
   const tasks: Task[] = tsv.map((line) => ({
     sentence: line[0],
-    answer: line[1],
+    answer: line
+      .slice(1)
+      .filter((ans) => ans !== '')
+      .map((ans) => normalizeString(ans)),
   }))
   return {
     id,

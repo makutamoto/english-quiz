@@ -7,7 +7,7 @@ import styles from './AnswerBox.module.css'
 
 export interface AnswerBoxProps {
   correct: boolean | null
-  answer: string
+  answer: string[]
   value: string
   onChange: (val: string) => void
 }
@@ -45,7 +45,7 @@ export default React.forwardRef((props: AnswerBoxProps, ref) => {
           <div className={clsx('mt-1', styles.correct)}>正解</div>
         ) : (
           <div className={clsx('mt-1', styles.wrong_answer)}>
-            答え：{props.answer}
+            答え：{props.answer.join(', ')}
           </div>
         ))}
     </div>

@@ -7,7 +7,7 @@ export interface TaskProps {
   number: number
   problem: string
   correct: boolean
-  answer: string
+  answer: string[]
   value: string
   onChange: (val: string) => void
 }
