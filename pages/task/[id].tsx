@@ -32,8 +32,7 @@ export default function ({ task }: Props) {
       e.preventDefault()
       ref.current.focus()
       if (confirm) {
-        const normalizedValue = normalizeString(value)
-        if (answer.includes(normalizedValue)) {
+        if (answer.map(str => str.toLowerCase()).includes(value.toLowerCase())) {
           setCorrect(true)
           setScore(score + 1)
         } else {
