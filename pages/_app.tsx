@@ -9,6 +9,7 @@ export default function ({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>英語クイズ</title>
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">英語クイズ</Navbar.Brand>
