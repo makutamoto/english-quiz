@@ -57,8 +57,9 @@ export default function ({ task }: Props) {
   const onChange = useCallback((val) => setValue(val), [setValue])
   return (
     <>
+      <h4>{task.name}</h4>
       <div>
-        正答数：{score} 誤答数：{penalty}
+        問題数：{task.tasks.length} 正答数：{score} 誤答数：{penalty}
       </div>
       {problem < tasks.length ? (
         <form>
